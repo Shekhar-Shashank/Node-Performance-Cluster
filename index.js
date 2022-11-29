@@ -37,18 +37,18 @@ if (cluster.isMaster) {
     res.send(`This was Fast! ${process.pid}`)
   })
  
-  // app.get("/api/:n", function (req, res) {
-  //   let n = parseInt(req.params.n);
-  //   let count = 0;
+  app.get("/api/:n", function (req, res) {
+    let n = parseInt(req.params.n);
+    let count = 0;
  
-  //   if (n > 5000000000) n = 5000000000;
+    if (n > 5000000000) n = 5000000000;
  
-  //   for (let i = 0; i <= n; i++) {
-  //     count += i;
-  //   }
+    for (let i = 0; i <= n; i++) {
+      count += i;
+    }
  
-  //   res.send(`${process.pid} Final count is ${count}`);
-  // });
+    res.send(`${process.pid} Final count is ${count}`);
+  });
  
   app.listen(port, () => {
     console.log(`App listening on port ${port}`);
